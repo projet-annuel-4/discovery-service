@@ -1,4 +1,4 @@
-name: Geteway service CI
+name: Discovery service CI
 
 on:
   push:
