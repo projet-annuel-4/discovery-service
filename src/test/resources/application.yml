@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: discovery-service
+
+cloud:
+  config:
+    server:
+      git:
+        uri: ${CLOUD.CONFIG.SERVER.GIT.URI}
+        clone-on-start: true
+        label: main
+        username: ${CLOUD.CONFIG.SERVER.GIT.USERNAME}
+        password: ${CLOUD.CONFIG.SERVER.GIT.PASSWORD}
+    discovery:
+      enabled: true
+      service-id: config-server
+server:
+  port: 8761
