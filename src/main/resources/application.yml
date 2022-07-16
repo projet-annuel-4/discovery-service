@@ -1,8 +1,23 @@
-logging.level.org.springframework.cloud.kubernetes: DEBUG
-spring.application.name: discovery-service
+spring:
+  application:
+    name: discovery-service
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: "${HOSTNAME}.eureka"
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_ADDRESS}
+  server:
+    waitTimeInMsWhenSyncEmpty: 5
 
 management:
   endpoints:
     web:
       exposure:
-        include: info,refresh,keepalive,health
+        include: "*"
