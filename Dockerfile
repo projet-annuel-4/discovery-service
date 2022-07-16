@@ -12,7 +12,7 @@ LABEL maintainer="HLimam <heithem.limame@gmail.com>"
 COPY target/*.jar app.jar
 
 #unpackage jar file
-RUN mkdir -p target/dependency && (cd target/dependency;java ${JVM_OPTS} -jar /app.jar)
+RUN mkdir -p target/dependency && (cd target/dependency; jar -xf /app.jar)
 
 #stage 2
 #Same Java runtime
