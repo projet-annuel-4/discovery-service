@@ -2,19 +2,16 @@ spring:
   application:
     name: discovery-service
 server:
-  port: 8761
+  port: ${PORT:8761}
 
 eureka:
   instance:
-    hostname: "${HOSTNAME}.eureka"
-    prefer-ip-address: true
+    hostname: discovery
   client:
     registerWithEureka: false
     fetchRegistry: false
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER_ADDRESS}
   server:
-    waitTimeInMsWhenSyncEmpty: 5
+    enableSelfPreservation: false
 
 management:
   endpoints:
